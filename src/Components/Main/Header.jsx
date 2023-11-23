@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Header = () => {
+  const [isLogin, setIsLogin] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("accessToken")) {
+      setIsLogin(true)
+    }
+  }, [])
+
   return (
     <nav>
       <ul className="navbar">
@@ -14,7 +22,7 @@ const Header = () => {
           </a>
         </li>
         <li>
-          <a className="nav-link" href="/">
+          <a className="nav-link" href={isLogin ? "/" : "/login"}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="48"
