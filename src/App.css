@@ -47,6 +47,11 @@ nav > ul > li {
   margin: -6rem 0;
 }
 
+.login-error {
+  color: red;
+  text-align: center;
+}
+
 .login-page-logo {
   text-align: center;
   padding: 20px;
@@ -67,4 +72,15 @@ nav > ul > li {
   font-size: 16px;
   border-radius: 15px;
   margin: 10px 0;
+}
+
+.login-button {
+  width: 25rem;
+  height: 3rem;
+  font-size: 16px;
+  border-radius: 15px;
+}
+
+.login-button:hover {
+  cursor: pointer;
 }
