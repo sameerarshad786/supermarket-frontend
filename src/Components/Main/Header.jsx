@@ -1,13 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-const Header = () => {
-  const [isLogin, setIsLogin] = useState(false);
-
-  useEffect(() => {
-    if (localStorage.getItem("accessToken")) {
-      setIsLogin(true)
-    }
-  }, [])
+const Header = ({ isLogin }) => {
 
   return (
     <nav>
