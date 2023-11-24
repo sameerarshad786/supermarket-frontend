@@ -1,12 +1,10 @@
 import React from 'react'
 import Header from './Header'
-import SearchBar from "./SearchBar";
 
-const Main = () => {
+const Main = ({ accessToken }) => {
   return (
     <>
-      <Header />
-      <SearchBar />
+      <Header accessToken={accessToken} />
     </>
   )
 }
