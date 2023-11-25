@@ -9,6 +9,8 @@ import {
   Navigate,
 } from "react-router-dom";
 import Cart from "./Components/Cart/Cart";
+import SearchBar from "./Components/Main/SearchBar";
+import Products from "./Components/Product/Products";
 
 function App() {
   const [accessToken, setAccessToken] = useState(null);
@@ -23,7 +25,16 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Main accessToken={accessToken} />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Main accessToken={accessToken} />
+                <SearchBar accessToken={accessToken} />
+                <Products accessToken={accessToken} />
+              </>
+            }
+          />
           <Route 
             path="/cart" 
             element={
