@@ -1,10 +1,9 @@
-const FetchProduct = async(accessToken, queryParams) => {
+const FetchProduct = async(queryParams) => {
     try {
         const response = await fetch(`${process.env.REACT_APP_SERVER}products/list/?${queryParams}`, {
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessToken}`
+                'Content-Type': 'application/json'
             },
             method: "GET"
         })

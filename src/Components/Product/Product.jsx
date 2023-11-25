@@ -3,7 +3,7 @@ import React from "react";
 const Product = ({ product }) => {
   return (
     <li className="single-product">
-      <a href={product.url} target="_blank">
+      <a href={product.url} target="_blank" rel="noreferrer">
         <img
           className="product-source-icon"
           src={require(`../../Assets/${product.by}.ico`)}
@@ -19,7 +19,7 @@ const Product = ({ product }) => {
           alt={product.name}
         />
         <div className="product-text">
-          <p>{product.name}</p>
+          <p>{product.name}</p><br />
           <span>
             <p>
               {product.price.lower} $

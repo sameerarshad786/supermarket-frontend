@@ -7,7 +7,7 @@ const CartItem = ({ cartItem }) => {
         {
           cartItem && cartItem.map((product) => (
             <li key={product.id}>
-              <a className='cart-source-icon-conainer' href={product.url} target="_blank">
+              <a href="/" target="_blank" rel="noreferrer">
                 <img
                   className="cart-source-icon"
                   src={require(`../../Assets/${product.product.by}.ico`)}
@@ -16,7 +16,7 @@ const CartItem = ({ cartItem }) => {
                   height="25px"
                 />
               </a>
-              <a className="cart-item" href={product.product.url}>
+              <a className="cart-item" href="/">
                 <img
                   className="cart-item-image"
                   src={product.product.images}
@@ -36,7 +36,7 @@ const CartItem = ({ cartItem }) => {
                   <span>Rating: {product.product.ratings}</span>
                 </div>
               </a>
-              <p>{product.quantity}</p>
+              {/* <p>{product.quantity}</p> */}
             </li>
           ))
         }
