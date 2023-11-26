@@ -2,15 +2,16 @@ import "./App.css";
 import { useEffect, useState } from "react"
 import Main from "./Components/Main/Main";
 import Login from "./Components/Auth/Login";
+import Cart from "./Components/Cart/Cart";
+import SearchBar from "./Components/Main/SearchBar";
+import Products from "./Components/Product/Products";
+import Categories from "./Components/Categories/Categories";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
 } from "react-router-dom";
-import Cart from "./Components/Cart/Cart";
-import SearchBar from "./Components/Main/SearchBar";
-import Products from "./Components/Product/Products";
 
 function App() {
   const [accessToken, setAccessToken] = useState(null);
@@ -31,7 +32,8 @@ function App() {
               <>
                 <Main accessToken={accessToken} />
                 <SearchBar accessToken={accessToken} />
-                <Products accessToken={accessToken} />
+                <Categories />
+                <Products />
               </>
             }
           />
