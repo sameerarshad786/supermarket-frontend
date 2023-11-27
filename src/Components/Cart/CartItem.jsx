@@ -28,7 +28,7 @@ const CartItem = ({ cartItem }) => {
                     <p className="product-price">
                       {product.product.price.lower} $
                       {product.product.price.upper !== null &&
-                        ` to ${product.price.upper} $`}
+                        ` to ${product.product.price.upper} $`}
                     </p>
                   </span>
                   <span>Brand: {product.product.brand.name}</span>

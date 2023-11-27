@@ -22,6 +22,10 @@ function App() {
     }
   }, [])
 
+  const handleLoginSuccess = (token) => {
+    setAccessToken(token);
+  };
+
   return (
     <>
       <Router>
@@ -33,7 +37,7 @@ function App() {
                 <Main accessToken={accessToken} />
                 <SearchBar accessToken={accessToken} />
                 <Categories />
-                <Products />
+                <Products accessToken={accessToken} />
               </>
             }
           />
@@ -50,7 +54,7 @@ function App() {
           accessToken ? (
             <Route path="*" element={<Navigate to="/" />} />
             ): (
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login handleLoginSuccess={handleLoginSuccess} />} />
           )
         }
         </Routes>

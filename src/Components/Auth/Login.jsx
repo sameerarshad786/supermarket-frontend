@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FetchLogin from "../../Utils/FetchLogin";
 import { Navigate } from "react-router";
 
-const Login = () => {
+const Login = ({ handleLoginSuccess }) => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
   const [success, setSuccess] = useState(false)
@@ -20,6 +20,7 @@ const Login = () => {
       localStorage.setItem("accessToken", data.tokens.access_token);
       localStorage.setItem("refreshToken", data.tokens.refresh);
       setSuccess(true)
+      handleLoginSuccess(data.tokens.access_token)
     } else {
       if ("email" in data) {
         setEmailFieldError(data.email)
