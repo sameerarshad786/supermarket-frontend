@@ -15,14 +15,12 @@ const Categories = () => {
     fetchData();
   }, []);
 
-  console.log(data);
-
   return (
     <section className="categories-container">
       <ul>
         {data.map((category) => (
           <li key={category.id}>
-            <a className="catgory" href="/">
+            <a className="category" href="/">
               <p>{category.name}</p>
             </a>
           </li>
