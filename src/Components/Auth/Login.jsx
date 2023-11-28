@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FetchLogin from "../../Utils/FetchLogin";
+import FetchLogin from "../../Utils/Auth/FetchLogin";
 import { Navigate } from "react-router";
 
 const Login = ({ handleLoginSuccess }) => {
