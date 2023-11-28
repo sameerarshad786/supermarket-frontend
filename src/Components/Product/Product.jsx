@@ -1,5 +1,5 @@
 import React from "react";
-import AddToCart from "../../Utils/AddToCart";
+import AddToCart from "../../Utils/Carts/AddToCart";
 
 const Product = ({ accessToken, product }) => {
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import FetchCategories from "../../Utils/FetchCategories";
+import FetchCategories from "../../Utils/Categories/FetchCategories";
 
 const Categories = () => {
   const [data, setData] = useState([]);

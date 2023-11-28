@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import FetchCart from '../../Utils/FetchCart';
+import FetchCart from '../../Utils/Carts/FetchCart';
 import CartItem from './CartItem';
 
 const Cart = ({ accessToken }) => {

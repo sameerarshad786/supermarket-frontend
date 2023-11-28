@@ -15,7 +15,7 @@ const Header = ({ accessToken }) => {
           </a>
         </li>
         <li>
-          <a className="nav-link" href={accessToken ? "/cart" : "/login"}>
+          <a className="nav-link" href={accessToken ? "/cart/" : "/login/"}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="40"
