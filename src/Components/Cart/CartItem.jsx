@@ -6,7 +6,7 @@ const CartItem = ({ cartItem }) => {
     <ul className='cart-list'>
         {
           cartItem && cartItem.map((product) => (
-            <li key={product.id}>
+            <li key={product.product.id}>
               <a href="/" target="_blank" rel="noreferrer">
                 <img
                   className="cart-source-icon"
