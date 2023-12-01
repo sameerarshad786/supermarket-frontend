@@ -123,8 +123,7 @@ nav > ul > li {
   list-style-type: none;
   display: flex;
   flex-direction: row;
-  padding: 10px;
-  border: 1px solid black;
+  padding: 2%;
   border-radius: 10px;
   margin-bottom: 18px;
   background-color: var(--item-background-color);
