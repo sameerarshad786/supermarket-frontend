@@ -1,15 +1,15 @@
-const AddToCart = async(accessToken, product_id, setOnCart) => {
+const RemoveFromCart = async(accessToken, product_id, setOnCart) => {
     try {
-        const response = await fetch(`${process.env.REACT_APP_SERVER}carts/add-to-cart/${product_id}/`, {
+        const response = await fetch(`${process.env.REACT_APP_SERVER}carts/remove-from-cart/${product_id}/`, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessToken}`
             },
-            method: "POST"
+            method: "DELETE"
         })
         if (response.ok) {
-            setOnCart(true)
+            setOnCart(false)
         }
         return await response
     } catch(error) {
@@ -17,4 +17,4 @@ const AddToCart = async(accessToken, product_id, setOnCart) => {
     }
 }
 
-export default AddToCart;
+export default RemoveFromCart;

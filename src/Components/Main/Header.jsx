@@ -1,6 +1,7 @@
 import React from "react";
+import SearchBar from "./SearchBar"
 
-const Header = ({ accessToken }) => {
+const Header = ({ accessToken, showSearchBar }) => {
 
   return (
     <nav>
@@ -14,6 +15,12 @@ const Header = ({ accessToken }) => {
             />
           </a>
         </li>
+        {showSearchBar ?
+          <li className="search-bar-main">
+            <SearchBar />
+          </li> :
+          ""
+        }
         <li>
           <a className="nav-link" href={accessToken ? "/cart/" : "/login/"}>
             <svg

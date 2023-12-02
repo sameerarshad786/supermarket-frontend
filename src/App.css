@@ -23,7 +23,8 @@ nav > ul > li {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
+  height: 5em;
 }
 
 .nav-link {
@@ -31,6 +32,9 @@ nav > ul > li {
 }
 
 /* search bar */
+.search-bar-main {
+  width: 40rem;
+}
 .search-bar-container {
   text-align: center;
 }
@@ -42,6 +46,12 @@ nav > ul > li {
   padding: 1rem;
   font-size: medium;
   border-radius: 20px;
+}
+
+@media screen and (max-width: 750px) {
+  .search-bar-main {
+    display: none;
+  }
 }
 
 /* login page */
@@ -172,7 +182,7 @@ nav > ul > li {
   border-radius: 10px;
 }
 
-.add-to-cart {
+.cart-options {
   border: none;
   background: none;
   padding: 10px;
@@ -181,11 +191,11 @@ nav > ul > li {
   left: 85%;
 }
 
-.add-to-cart:hover {
+.cart-options:hover {
   cursor: pointer;
 }
 
-.add-to-cart svg:hover {
+.cart-options svg:hover {
   height: 30;
   width: 30;
 }
@@ -240,7 +250,7 @@ nav > ul > li {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   max-width: 70rem;
   width: 100%;
-  padding: 2%;
+  padding: 1% 2%;
   border-radius: 20px;
 }
 
