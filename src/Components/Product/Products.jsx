@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import FetchProduct from "../../Utils/Products/FetchProduct";
 import Product from "./Product";
 
-const Products = (accessToken) => {
+const Products = ({ accessToken }) => {
   const [data, setData] = useState([]);
   const [queryParams, setQueryParams] = useState(`page=${1}`);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await FetchProduct(queryParams);
+    const fetchData = async() => {
+      const response = await FetchProduct(queryParams, accessToken);
       if (response.ok) {
         setData(await response.json());
       }
@@ -23,7 +23,12 @@ const Products = (accessToken) => {
         <section className='product-container'>
           <ul className='product'>
             {data.results && data.results.map((product) => (
-              <Product accessToken={accessToken} product={product} key={product.id} />
+              <Product
+                key={product.id}
+                accessToken={accessToken}
+                product={product}
+                on_cart={product.on_cart}
+              />
             ))}
           </ul>
         </section>

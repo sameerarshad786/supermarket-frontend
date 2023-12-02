@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import Main from "./Components/Main/Main";
 import Login from "./Components/Auth/Login";
 import Cart from "./Components/Cart/Cart";
-import SearchBar from "./Components/Main/SearchBar";
 import Products from "./Components/Product/Products";
 import Categories from "./Components/Categories/Categories";
 import {
@@ -14,13 +13,7 @@ import {
 } from "react-router-dom";
 
 function App() {
-  const [accessToken, setAccessToken] = useState(null);
-
-  useEffect(() => {
-    if (localStorage.getItem("accessToken")) {
-      setAccessToken(localStorage.getItem("accessToken"))
-    }
-  }, [])
+  const [accessToken, setAccessToken] = useState(localStorage.getItem("accessToken"));
 
   const handleLoginSuccess = (token) => {
     setAccessToken(token);
@@ -35,7 +28,6 @@ function App() {
             element={
               <>
                 <Main accessToken={accessToken} />
-                <SearchBar accessToken={accessToken} />
                 <Categories />
                 <Products accessToken={accessToken} />
               </>
