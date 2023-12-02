@@ -37,6 +37,7 @@ nav > ul > li {
 }
 .search-bar-container {
   text-align: center;
+  position: relative;
 }
 
 .search-bar {
@@ -46,6 +47,15 @@ nav > ul > li {
   padding: 1rem;
   font-size: medium;
   border-radius: 20px;
+}
+
+.search {
+  background-color: white;
+  border: none;
+  position: absolute;
+  top: 0.45rem;
+  right: 1rem;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 750px) {
@@ -317,7 +327,7 @@ nav > ul > li {
   width: 80em;
   display: flex;
   justify-content: flex-start;
-  padding: 1.2%;
+  padding: 0.3% 1.2%;
 }
 
 .categories-container > ul > li {

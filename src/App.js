@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Main from "./Components/Main/Main";
 import Login from "./Components/Auth/Login";
 import Cart from "./Components/Cart/Cart";
@@ -14,6 +14,7 @@ import {
 
 function App() {
   const [accessToken, setAccessToken] = useState(localStorage.getItem("accessToken"));
+  const [search, setSearch] = useState("search=");
 
   const handleLoginSuccess = (token) => {
     setAccessToken(token);
@@ -27,9 +28,9 @@ function App() {
             path="/"
             element={
               <>
-                <Main accessToken={accessToken} />
+                <Main accessToken={accessToken} setSearch={setSearch} showSearchBar={true} />
                 <Categories />
-                <Products accessToken={accessToken} />
+                <Products accessToken={accessToken} search={search} />
               </>
             }
           />
@@ -37,7 +38,7 @@ function App() {
             path="/cart" 
             element={
               <>
-                <Main accessToken={accessToken} />
+                <Main accessToken={accessToken} showSearchBar={false} />
                 <Cart accessToken={accessToken} />
               </>
             }
