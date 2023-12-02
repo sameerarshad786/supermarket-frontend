@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Header from './Header'
 
-const Main = ({ accessToken }) => {
-  const [showSearchBar, setShowSearchBar] = useState(false)
-
-  useEffect(() => {
-    if (document.URL === "http://localhost:3000/") {
-      setShowSearchBar(true)
-    }
-  })
+const Main = ({ accessToken, setSearch, showSearchBar }) => {
 
   return (
     <>
-      <Header accessToken={accessToken} showSearchBar={showSearchBar} />
+      <Header accessToken={accessToken} showSearchBar={showSearchBar} setSearch={setSearch} />
     </>
   )
 }
