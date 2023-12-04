@@ -28,9 +28,7 @@ function App() {
             path="/"
             element={
               <>
-                <Main accessToken={accessToken} setSearch={setSearch} showSearchBar={true} />
-                <Categories />
-                <Products accessToken={accessToken} search={search} />
+                <Categories accessToken={accessToken} />
               </>
             }
           />
