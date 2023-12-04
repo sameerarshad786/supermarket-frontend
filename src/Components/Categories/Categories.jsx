@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import FetchCategories from "../../Utils/Categories/FetchCategories";
 
-const Categories = () => {
+const Categories = ({ accessToken }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await FetchCategories();
+      const response = await FetchCategories(accessToken);
       if (response.ok) {
         setData(await response.json());
       }

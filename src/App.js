@@ -9,12 +9,13 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
+  Navigate
 } from "react-router-dom";
 
 function App() {
   const [accessToken, setAccessToken] = useState(localStorage.getItem("accessToken"));
   const [search, setSearch] = useState("search=");
+  const queryParams = new URLSearchParams(document.location.search);
 
   const handleLoginSuccess = (token) => {
     setAccessToken(token);
@@ -28,9 +29,18 @@ function App() {
             path="/"
             element={
               <>
-                <Main accessToken={accessToken} setSearch={setSearch} showSearchBar={true} />
-                <Categories />
-                <Products accessToken={accessToken} search={search} />
+                <Main
+                  accessToken={accessToken}
+                  setSearch={setSearch}
+                  showSearchBar={true}
+                  queryParams={queryParams}
+                />
+                <Categories accessToken={accessToken} />
+                <Products
+                  accessToken={accessToken}
+                  search={search}
+                  queryParams={queryParams}
+                />
               </>
             }
           />
