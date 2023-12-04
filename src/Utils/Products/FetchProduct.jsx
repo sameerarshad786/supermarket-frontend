@@ -1,4 +1,4 @@
-const FetchProduct = async(queryParams, accessToken) => {
+const FetchProduct = async(queryParams, search, accessToken) => {
     const headers = {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
