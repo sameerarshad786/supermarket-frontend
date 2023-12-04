@@ -1,11 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
-const SearchBar = ({ setSearch }) => {
+const SearchBar = ({ setSearch, queryParams }) => {
   const [value, setValue] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (queryParams.get("search")) {
+      setSearch(`search=${queryParams.get("search").toString()}`)
+      setValue(queryParams.get("search"))
+      navigate({ search: queryParams.toString() });
+    }
+  }, [queryParams])
 
   function handleSearchBarSubmit(event) {
     event.preventDefault();
-    setSearch(value)
+    queryParams.set("search", value)
+    setSearch(`search=${queryParams.get("search").toString()}`)
+    navigate({ search: queryParams.toString() });
   }
 
   return (
@@ -14,7 +26,10 @@ const SearchBar = ({ setSearch }) => {
         className="search-bar"
         type="text"
         placeholder="search"
-        onChange={(e) => setValue(`search=${e.target.value}`)}
+        onChange={
+          (e) => setValue(e.target.value)
+        }
+        value={value}
       />
       <button type="submit" className="search">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
