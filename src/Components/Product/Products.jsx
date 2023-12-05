@@ -1,21 +1,31 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import FetchProduct from "../../Utils/Products/FetchProduct";
 import Product from "./Product";
 
-const Products = ({ accessToken, search, queryParams }) => {
+const Products = ({ accessToken, queryParams }) => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
+  const navigate = useNavigate();
 
   useEffect(() => {
+    var parameters = window.location.search.replace("?", "")
+    if (queryParams) {
+      parameters = new URLSearchParams(queryParams).toString()
+      navigate({ search: parameters })
+    } else {
+      parameters = new URLSearchParams(window.location.search).toString()
+    }
+
     const fetchData = async() => {
-      const response = await FetchProduct(queryParams, search, accessToken);
-      if (response.ok) {
-        setData(await response.json());
-      }
-    };
+    const response = await FetchProduct(accessToken, parameters);
+    if (response.ok) {
+      setData(await response.json());
+    }
+  };
 
     fetchData();
-  }, [accessToken, page, queryParams]);
+  }, [accessToken, queryParams, page, navigate]);
 
   return (
     <div>

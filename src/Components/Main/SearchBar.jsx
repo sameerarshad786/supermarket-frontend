@@ -1,23 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import queryString from 'query-string';
 
-const SearchBar = ({ setSearch, queryParams }) => {
+const SearchBar = ({ setQueryParams }) => {
   const [value, setValue] = useState('');
-  const navigate = useNavigate();
 
   useEffect(() => {
-    if (queryParams.get("search")) {
-      setSearch(`search=${queryParams.get("search").toString()}`)
-      setValue(queryParams.get("search"))
-      navigate({ search: queryParams.toString() });
+    const paramsObject = queryString.parse(window.location.search);
+    setQueryParams(paramsObject)
+    if (paramsObject["search"]) {
+      setValue(paramsObject["search"])
     }
-  }, [queryParams])
-
+  }, [setQueryParams]);
+  
   function handleSearchBarSubmit(event) {
     event.preventDefault();
-    queryParams.set("search", value)
-    setSearch(`search=${queryParams.get("search").toString()}`)
-    navigate({ search: queryParams.toString() });
+    setQueryParams({ "search": value })
   }
 
   return (
