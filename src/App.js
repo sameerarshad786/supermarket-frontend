@@ -14,7 +14,8 @@ import {
 
 function App() {
   const [accessToken, setAccessToken] = useState(localStorage.getItem("accessToken"));
-  const [queryParams, setQueryParams] = useState({})
+  const [search, setSearch] = useState("search=");
+  const queryParams = new URLSearchParams(document.location.search);
 
   const handleLoginSuccess = (token) => {
     setAccessToken(token);
@@ -30,12 +31,14 @@ function App() {
               <>
                 <Main
                   accessToken={accessToken}
+                  setSearch={setSearch}
                   showSearchBar={true}
-                  setQueryParams={setQueryParams}
+                  queryParams={queryParams}
                 />
                 <Categories accessToken={accessToken} />
                 <Products
                   accessToken={accessToken}
+                  search={search}
                   queryParams={queryParams}
                 />
               </>

@@ -13,7 +13,7 @@ const Categories = ({ accessToken }) => {
     };
 
     fetchData();
-  }, [accessToken]);
+  }, []);
 
   return (
     <section className="categories-container">
