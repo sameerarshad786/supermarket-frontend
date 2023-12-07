@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 
-const SearchBar = ({ setSearch }) => {
+const SearchBar = ({ setSearchParams }) => {
   const [value, setValue] = useState('');
 
   function handleSearchBarSubmit(event) {
     event.preventDefault();
-    setSearch(value)
+    setSearchParams({ search : value })
   }
 
   return (
     <form className="search-bar-container" method="GET" onSubmit={handleSearchBarSubmit}>
       <input
+        id="search"
         className="search-bar"
         type="text"
         placeholder="search"
-        onChange={(e) => setValue(`search=${e.target.value}`)}
+        onChange={(e) => setValue(e.target.value)}
       />
       <button type="submit" className="search">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">

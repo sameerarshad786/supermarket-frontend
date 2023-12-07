@@ -1,7 +1,7 @@
 import React from "react";
 import SearchBar from "./SearchBar"
 
-const Header = ({ accessToken, showSearchBar, setSearch }) => {
+const Header = ({ accessToken, showSearchBar, setSearchParams }) => {
 
   return (
     <nav>
@@ -17,7 +17,7 @@ const Header = ({ accessToken, showSearchBar, setSearch }) => {
         </li>
         {showSearchBar ?
           <li className="search-bar-main">
-            <SearchBar setSearch={setSearch} />
+            <SearchBar setSearchParams={setSearchParams} />
           </li> :
           ""
         }
