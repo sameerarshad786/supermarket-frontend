@@ -16,7 +16,7 @@ const CartItem = ({ cartItem }) => {
                   height="25px"
                 />
               </a>
-              <a className="cart-item" href="/">
+              <a className="cart-item" href={product.product.url}>
                 <img
                   className="cart-item-image"
                   src={product.product.images}

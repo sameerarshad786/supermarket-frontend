@@ -2,20 +2,20 @@ import React, { useState, useEffect } from "react";
 import FetchProduct from "../../Utils/Products/FetchProduct";
 import Product from "./Product";
 
-const Products = ({ accessToken, search }) => {
+const Products = ({ accessToken, searchParams }) => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(`page=${1}`);
 
   useEffect(() => {
     const fetchData = async() => {
-      const response = await FetchProduct(page, search, accessToken);
+      const response = await FetchProduct(page, searchParams, accessToken);
       if (response.ok) {
         setData(await response.json());
       }
     };
 
     fetchData();
-  }, [search, accessToken, page]);
+  }, [searchParams, accessToken, page]);
 
   return (
     <div>

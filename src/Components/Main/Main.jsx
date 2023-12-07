@@ -1,11 +1,15 @@
 import React from 'react'
 import Header from './Header'
 
-const Main = ({ accessToken, setSearch, showSearchBar }) => {
+const Main = ({ accessToken, setSearchParams, showSearchBar }) => {
 
   return (
     <>
-      <Header accessToken={accessToken} showSearchBar={showSearchBar} setSearch={setSearch} />
+      <Header
+        accessToken={accessToken}
+        showSearchBar={showSearchBar}
+        setSearchParams={setSearchParams}
+      />
     </>
   )
 }
