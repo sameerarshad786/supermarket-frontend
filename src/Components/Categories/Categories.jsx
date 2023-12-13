@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FetchCategories from "../../Utils/Categories/FetchCategories";
 
-const Categories = () => {
+const Categories = ({ setSearchParams }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -20,9 +20,12 @@ const Categories = () => {
       <ul>
         {data.map((category) => (
           <li key={category.id}>
-            <a className="category" href="/">
-              <p>{category.name}</p>
-            </a>
+            <button
+              className="category"
+              onClick={() => setSearchParams({ category : category.name })}
+            >
+              {category.name}
+            </button>
           </li>
         ))}
       </ul>

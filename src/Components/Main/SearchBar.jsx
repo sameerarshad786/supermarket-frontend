@@ -10,7 +10,7 @@ const SearchBar = ({ searchParams, setSearchParams }) => {
       setSearchParams({ search : search});
       setValue(search)
     }
-  }, [searchParams])
+  }, [searchParams, setSearchParams])
 
   function handleSearchBarSubmit(event) {
     event.preventDefault();

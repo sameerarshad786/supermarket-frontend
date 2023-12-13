@@ -31,11 +31,9 @@ const Products = ({ accessToken, searchParams }) => {
   };
 
   useEffect(() => {
-    var removeStates
-    if (searchParams.get("search")) {
+    var removeStates = false
+    if (searchParams.get("search") || searchParams.get("category")) {
       removeStates = true;
-    } else {
-      removeStates = false
     }
     fetchData(removeStates);
   }, [searchParams]);

@@ -32,7 +32,7 @@ function App() {
               setSearchParams={setSearchParams}
               showSearchBar={true}
             />
-            <Categories />
+            <Categories setSearchParams={setSearchParams} />
             <Products accessToken={accessToken} searchParams={searchParams} />
           </>
         }
