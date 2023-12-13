@@ -1,4 +1,4 @@
-const FetchProduct = async(page, search, accessToken) => {
+const FetchProduct = async(searchParams, accessToken, setItems, setHasMore) => {
     const headers = {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -9,11 +9,15 @@ const FetchProduct = async(page, search, accessToken) => {
     }
 
     try {
-        const response = await fetch(`${process.env.REACT_APP_SERVER}products/list/?${page}&${search}`, {
+        const response = await fetch(`${process.env.REACT_APP_SERVER}products/list/?${searchParams}`, {
             headers: headers,
             method: "GET"
         })
-        return await response
+        if (response.ok) {
+            const data = await response.json();
+            setHasMore(data.next !== null);
+            setItems(prevItems => [...prevItems, ...data.results]);
+        }
     } catch(error) {
         console.log(error)
     }

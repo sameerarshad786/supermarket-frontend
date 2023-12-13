@@ -1,7 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import queryString from "query-string";
 
-const SearchBar = ({ setSearchParams }) => {
+const SearchBar = ({ searchParams, setSearchParams }) => {
   const [value, setValue] = useState('');
+
+  useEffect(() => {
+    const search = queryString.parse(window.location.search.toString())["search"]
+    if (search) {
+      setSearchParams({ search : search});
+      setValue(search)
+    }
+  }, [searchParams])
 
   function handleSearchBarSubmit(event) {
     event.preventDefault();
@@ -16,6 +25,7 @@ const SearchBar = ({ setSearchParams }) => {
         type="text"
         placeholder="search"
         onChange={(e) => setValue(e.target.value)}
+        value={value}
       />
       <button type="submit" className="search">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
