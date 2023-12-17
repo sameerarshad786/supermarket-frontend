@@ -21,7 +21,12 @@ const Header = ({ accessToken, showSearchBar, searchParams, setSearchParams }) =
           </li> :
           ""
         }
-        <li>
+        <li className="cart-noti">
+          <a className="nav-link" href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40">
+              <path d="M190.667-190.667V-232h60v-334q0-82.217 52.167-146.275Q355-776.333 436.667-792.667v-13q0-17.333 12.627-30.333 12.628-13 30.667-13t30.706 13q12.666 13 12.666 30.333v13.334q81.667 16 134.333 79.593 52.667 63.592 52.667 146.74v334h60v41.333H190.667ZM481-493.333Zm-1.212 410.666q-28.138 0-47.963-19.975T412-150.667h136q0 28.667-20.037 48.333-20.038 19.667-48.175 19.667ZM292-232h377v-334q0-78-55.58-133-55.579-55-133.5-55Q402-754 347-699q-55 55-55 133v334Z"/>
+            </svg>
+          </a>
           <a className="nav-link" href={accessToken ? "/cart/" : "/login/"}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
