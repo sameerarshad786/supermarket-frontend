@@ -31,6 +31,10 @@ nav > ul > li {
   text-decoration: none;
 }
 
+.cart-noti a {
+  padding: 0 20px;
+}
+
 /* search bar */
 .search-bar-main {
   width: 40rem;
