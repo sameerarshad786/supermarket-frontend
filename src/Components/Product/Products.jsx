@@ -6,15 +6,25 @@ const Products = ({ accessToken, searchParams }) => {
   const [items, setItems] = useState([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(false)
+  const headers = {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  }
 
   const fetchData = async (removeStates) => {
 
     if (!removeStates) {
       searchParams.set("page", page)
     }
-  
+    
+    if (accessToken) {
+      headers['Authorization'] = `Bearer ${accessToken}`
+    }
+
     try {
-      const response = await fetch(`${process.env.REACT_APP_SERVER}products/list/?${searchParams}`);
+      const response = await fetch(`${process.env.REACT_APP_SERVER}products/list/?${searchParams}`, {
+        headers: headers
+      });
       const data = await response.json();
 
       setHasMore(data.next !== null);
