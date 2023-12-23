@@ -5,8 +5,19 @@ import { useNavigate } from "react-router-dom";
 
 const Product = ({ accessToken, product, on_cart }) => {
   const [onCart, setOnCart] = useState(on_cart);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const navigate = useNavigate();
 
+  const handlePrevSlide = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? product.images.length - 1 : prevIndex - 1));
+  };
+  
+  const handleNextSlide = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex === product.images.length - 1 ? 0 : prevIndex + 1));
+  };
+
+  console.log(currentImageIndex)
+  
   return (
     <li className="single-product">
       <a href={product.url} target="_blank" rel="noreferrer">
@@ -18,10 +29,11 @@ const Product = ({ accessToken, product, on_cart }) => {
           height="30px"
         />
       </a>
+      {product.images.length > 1 ? <a className="prev" onClick={() => handlePrevSlide()}>&#10094;</a> : ""}
       <a className="product-detail" href="/">
         <img
           className="product-image"
-          src={product.images}
+          src={product.images[currentImageIndex]}
           alt={product.name}
         />
         <div className="product-text">
@@ -37,6 +49,7 @@ const Product = ({ accessToken, product, on_cart }) => {
           <span>Rating: {product.ratings}</span>
         </div>
       </a>
+      {product.images.length > 1 ? <a className="next" onClick={() => handleNextSlide()}>&#10095;</a> : ""}
       {
         onCart ?
         <button

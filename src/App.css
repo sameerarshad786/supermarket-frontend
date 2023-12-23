@@ -338,6 +338,21 @@ nav > ul > li {
   line-height: 18px;
 }
 
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+}
+
+.prev {
+  top: 5em;
+  left: 1em;
+}
+
+.next {
+  top: 5em;
+  right: 1em;
+}
+
 /* categories */
 .categories-container {
   display: flex;
