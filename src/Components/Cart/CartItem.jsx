@@ -16,7 +16,7 @@ const CartItem = ({ product, accessToken }) => {
           height="28px"
         />
       </a>
-      <a className="cart-item" href="/">
+      <a className="cart-item" href={`/product/${product.id}/`}>
         <img
           className="cart-item-image"
           src={product.images}

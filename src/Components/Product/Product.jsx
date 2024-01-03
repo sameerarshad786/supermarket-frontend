@@ -12,13 +12,13 @@ const Product = ({ accessToken, product, on_cart }) => {
       <a href={product.url} target="_blank" rel="noreferrer">
         <img
           className="product-source-icon"
-          src={product.by === "not defined" ? require(`../../Assets/favicon.ico`) : require(`../../Assets/${product.by}.ico`)}
+          src={require(`../../Assets/${product.by}.ico`)}
           alt={`${product.by} icon`}
           width="30px"
           height="30px"
         />
       </a>
-      <a className="product-detail" href="/">
+      <a className="product-detail" href={`/product/${product.id}/`}>
         <img
           className="product-image"
           src={product.images}
@@ -32,8 +32,8 @@ const Product = ({ accessToken, product, on_cart }) => {
               {product.price.upper !== null &&
                 ` to ${product.price.upper} $`}
             </p>
-          </span>
-          <span>Brand: {product.brand.name}</span>
+          </span><br />
+          <span>Brand: {product.brand.name}</span><br />
           <span>Rating: {product.ratings}</span>
         </div>
       </a>
