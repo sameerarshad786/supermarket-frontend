@@ -11,7 +11,8 @@ import {
   Navigate,
   useSearchParams
 } from "react-router-dom";
-import Detail from "./Components/Product/ProductDetail/Detail"
+import ProductDetail from "./Components/Product/Detail/ProductDetail"
+import Store from "./Components/Store/Store"
 
 function App() {
   const [accessToken, setAccessToken] = useState(localStorage.getItem("accessToken"));
@@ -52,7 +53,16 @@ function App() {
         element={
           <>
             <Main accessToken={accessToken} showSearchBar={false} />
-            <Detail accessToken={accessToken} />
+            <ProductDetail accessToken={accessToken} />
+          </>
+        }
+      />
+      <Route 
+        path="/store/:storeId/" 
+        element={
+          <>
+            <Main accessToken={accessToken} showSearchBar={false} />
+            <Store accessToken={accessToken} />
           </>
         }
       />

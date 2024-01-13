@@ -278,6 +278,7 @@ nav > ul > li {
 
 .product {
   display: grid;
+  place-items: center;
   column-gap: 50px;
   row-gap: 50px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -304,7 +305,7 @@ nav > ul > li {
   background-color: var(--item-background-color);
   height: 23em;
   position: relative;
-  min-width: 14em;
+  max-width: 14em;
 }
 
 .product-image {
@@ -402,7 +403,7 @@ nav > ul > li {
 
 
 /* review */
-.review-container, .store-container {
+.review-container {
   list-style-type: none;
   margin-top: 10px;
   border-radius: .5rem;
@@ -453,36 +454,10 @@ nav > ul > li {
   margin: 0 5px;
 }
 
-
-/* store */
-.store {
-  position: relative;
-}
-
-.store-content {
-  position: absolute;
-  bottom: 1em;
-  left: 1em;
-}
-
-.store-container {
-  height: fit-content;
-  margin-bottom: 20px;
-}
-
-.store-content {
-  display: flex;
-  align-items: center;
-}
-
-.store-name {
-  padding-left: 15px;
-}
-
 .visit-store {
   cursor: pointer;
   position: absolute;
-  top: 1em;
+  bottom: 1em;
   right: 1em;
   padding: 10px 40px;
   border-radius: 50px;
@@ -494,6 +469,87 @@ nav > ul > li {
 
 .visit-store:hover {
   background-color: rgb(5, 5, 209);
+}
+
+
+/* store */
+.store-detail-container {
+  display: flex;
+  justify-content: center;
+}
+
+.store-container {
+  /* width: 70em; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 5em;
+  padding: 0 20px;
+}
+
+.store-product-container {
+  display: flex;
+}
+
+.store-product-container > .product {
+  width: unset;
+}
+
+.store-content {
+  display: flex;
+  position: absolute;
+  left: 5em;
+  bottom: -4em;
+}
+
+.store-cover-photo {
+  border-radius: 10px;
+  max-width: 100%;
+  width: 1000px;
+}
+
+.store-main-photo {
+  width: 10rem;
+  height: 10rem;
+  object-fit: contain;
+  background-color: var(--item-background-color);
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.store-name {
+  font-size: 1.2rem;
+  margin-left: 15px;
+  margin-top: 4em;
+  font-weight: 600;
+  font-size: x-large;
+}
+
+@media screen and (max-width:724px) {
+  .store-main-photo {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .store-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: unset;
+    bottom: -6em;
+    /* margin-bottom: 30px; */
+  }
+
+  .store-name {
+    margin: 10px 0;
+  }
+
+  .store-product-container > .product {
+    margin-top: 4em;
+    width: 100%;
+    place-items: center;
+  }
 }
 
 
