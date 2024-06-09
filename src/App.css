@@ -628,3 +628,116 @@ nav > ul > li {
 	cursor: pointer;
 	outline: inherit;
 }
+
+/* message */
+.message-box-bar {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.message-box-container {
+  position: fixed;
+  bottom: 80px;
+  right: 80px;
+  width: 30em;
+  height: 40em;
+  background-color: white;
+  overflow-y: auto;
+  /* padding: 1em; */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.message-box-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.message-box-container li {
+  margin-bottom: 0.5em;
+  /* padding: 0.5em; */
+  border-radius: 5px;
+  margin-bottom: 30px;
+  padding: 1em;
+}
+
+.message-box-container .bot {
+  text-align: left;
+}
+
+.message {
+  background-color: #f1f1f1;
+  padding: 13px;
+  border-radius: 10px;
+}
+
+.message-box-container .user {
+  text-align: right;
+}
+
+.message-box-container li:last-child {
+  margin-bottom: 60px;
+}
+
+.message-box-heading {
+  position: fixed;
+  /* background-color: black; */
+  background-color: white;
+  width: 29em;
+  height: 2.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 0 10px 10px;
+}
+
+.message-box-heading > span {
+  padding: 10px 0 10px 20px;
+  /* color: white; */
+  /* position: absolute; */
+  font-weight: 800;
+  font-size: large;
+}
+
+.send-message-container {
+  margin-bottom: 20px;
+  z-index: 3;
+  position: fixed;
+  bottom: 70px;
+}
+
+.send-message-bar {
+  width: 28rem;
+  height: 2.5rem;
+  padding: 10px;
+  font-size: medium;
+  border-radius: 20px;
+  margin-left: 15px;
+}
+
+.message-box-input > button {
+  width: 3rem;
+  padding: 10px;
+  margin: 0 10px;
+}
+
+.send-message {
+  border: none;
+  position: absolute;
+  cursor: pointer;
+  background: none;
+  right: .01em;
+  bottom: -0.4em;
+  width: 3rem;
+  /* padding: 10px; */
+  margin: 0 auto;
+}

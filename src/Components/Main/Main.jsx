@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './Header'
+import MessageBox from './MessageBox'
 
 const Main = ({ accessToken, searchParams, setSearchParams, showSearchBar }) => {
 
@@ -11,6 +12,7 @@ const Main = ({ accessToken, searchParams, setSearchParams, showSearchBar }) => 
         searchParams={searchParams}
         setSearchParams={setSearchParams}
       />
+      <MessageBox accessToken={accessToken} />
     </>
   )
 }
