@@ -4,7 +4,12 @@ import SearchBar from "./SearchBar"
 const Header = ({ accessToken, showSearchBar, searchParams, setSearchParams }) => {
 
   return (
-    <nav>
+    <nav style={{
+      position: "fixed",
+      zIndex: 1,
+      width: "100%",
+      top: 0
+    }}>
       <ul className="navbar">
         <li>
           <a className="nav-link" href="/">

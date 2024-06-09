@@ -1,17 +1,17 @@
 import React from 'react'
 
 const Reviews = ({ review }) => {
-  // dda577bc-0b07-41af-bc66-7f995dbd5ec3
 
   return (
     <li className='review-instance'>
       <div className='reviewer'>
-        <div>
+        <div className='reviewer-info'>
           <img className='reviewer-picture' src={review.picture} alt={review.name} />
           <span>{review.name}</span>
         </div>
         <p>{review.review}</p>
-      </div>
+        {/* <span>{review.rating}</span> */}
+      </div><br />
       {review.images.length !== 0 ? <div className='review-media'>
           {
             review.images.map((img, index) => (
