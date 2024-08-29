@@ -41,6 +41,7 @@ const Product = ({ accessToken, product, on_cart }) => {
         onCart ?
         <button
           className="cart-options"
+          title="remove from cart"
           onClick={
             () => RemoveFromCart(accessToken, product.id, setOnCart)
           }
@@ -49,6 +50,7 @@ const Product = ({ accessToken, product, on_cart }) => {
         </button> :
         <button
           className="cart-options"
+          title="add to cart"
           onClick={
             accessToken ?
             () => AddToCart(accessToken, product.id, setOnCart) :

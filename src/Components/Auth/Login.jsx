@@ -37,7 +37,7 @@ const Login = ({ handleLoginSuccess }) => {
       <form className="login" onSubmit={handleSubmit} method="GET">
         <fieldset className="user-credentials">
           <a className="login-page-logo" href="/">
-              <img src={require("../../Assets/favicon.ico")} alt="web page icon" />
+              <img className="main-icon" src={require("../../Assets/favicon.ico")} alt="web page icon" />
           </a>
             {
               <div className="login-error">

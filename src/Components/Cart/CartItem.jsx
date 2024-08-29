@@ -38,6 +38,7 @@ const CartItem = ({ product, accessToken }) => {
       {onCart ? (
         <button
           className="cart-item-options"
+          title="remove from cart"
           onClick={() => RemoveFromCart(accessToken, product.id, setOnCart)}
         >
           <svg
@@ -52,6 +53,7 @@ const CartItem = ({ product, accessToken }) => {
       ) : (
         <button
           className="cart-item-options"
+          title="add to cart"
           onClick={() => AddToCart(accessToken, product.id, setOnCart)}
         >
           <svg
